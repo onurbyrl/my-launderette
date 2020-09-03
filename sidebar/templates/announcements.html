@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h1>Announcements</h1>
+    <p>Duyurular sayfası</p>
+    <br><br><br>
+
+    {% for announcement in announcements %}
+    <article class="media content-section">
+        {% if announcement.image %}
+        <img class="rounded-circle article-img" src="{{announcement.image.url}}" width="300">
+        {% endif %}
+        <div class="media-body">
+          <div class="article-metadata">
+            <p class="mr-2" href=>Admin</p>
+            <!-- <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small> -->
+          </div>
+          <h5><a class="article-title" >{{  announcement.title  }}</a></h5>
+          <p class="article-content">{{ announcement.details }}</p>
+        </div>
+      </article>
+      {% endfor %}
+
+
+{% endblock content %}
+
+
